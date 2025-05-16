@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd/app-name: app-of-apps
     backstage.io/techdocs-ref: dir:.
-    github.com/project-slug: rhdh-demo-gh/app-of-apps
+    github.com/project-slug: evans-developer-demos/app-of-apps
 spec:
   type: repository
   lifecycle: production
