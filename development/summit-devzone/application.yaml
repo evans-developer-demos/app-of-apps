@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: summit-devzone
+  namespace: argocd
+  labels:
+    environment: development
+    component: summit-devzone
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/evans-developer-demos/summit-devzone-manifests.git
+    targetRevision: main
+    path: development
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: summit-devzone-development
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
