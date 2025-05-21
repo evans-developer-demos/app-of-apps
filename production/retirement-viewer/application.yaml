@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: retirement-viewer
+  namespace: janus-argocd
+  labels:
+    environment: production
+    component: retirement-viewer
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/evans-developer-demos/retirement-viewer-manifests.git
+    targetRevision: main
+    path: production
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: retirement-viewer-production
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
