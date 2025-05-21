@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: retirement-viewer
-  namespace: janus-argocd
+  namespace: argocd
   labels:
     environment: production
     component: retirement-viewer
